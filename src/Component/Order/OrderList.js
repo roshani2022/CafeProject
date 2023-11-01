@@ -1,4 +1,7 @@
 import React from "react";
+import Card from "../UI/Card";
+import classes from './OrderList.module.css'
+import Button from "../UI/Button";
 const OrderList = (props) => {
     const table1Order = props.orders.filter((order) => order.table === "Table1");
   const table2Order = props.orders.filter(
@@ -12,14 +15,14 @@ const OrderList = (props) => {
       <li key={order.id}>
         
          {order.price} - {order.table}  - {order.dish}{"  "}
-        <button type="button" onClick={() => props.onClick(order.OrderId)}>
+        <Button type="button" onClick={() => props.onClick(order.OrderId)}>
           Delete Order
-        </button>
+        </Button>
       </li>
     ));
   };
   return (
-    <div class="order-list">
+    <Card className={classes.orderlist}>
       <div className="table">
         <h2>Table1</h2>
         
@@ -35,7 +38,7 @@ const OrderList = (props) => {
         <h2>Table3</h2>
         <ul>{showOrder(table3Order)}</ul>
       </div>
-    </div>
+    </Card>
   );
 };
 export default OrderList;
