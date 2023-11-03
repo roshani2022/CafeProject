@@ -1,0 +1,40 @@
+cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid darkslategrey;
+    padding: 1rem 0;
+    margin: 1rem 0;
+  }
+
+  .summary {
+    width: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+  }
+  .cart-item button {
+    font: inherit;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: darkslategray;
+    border: 1px solid darkslategray;
+    width: 3rem;
+    text-align: center;
+    border-radius: 6px;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 1rem;
+    margin: 0.25rem;
+  }
+
+  .cart-item button:hover,
+  .cart-item button:active {
+    background-color: darkslategrey;
+    color: white;
+  }

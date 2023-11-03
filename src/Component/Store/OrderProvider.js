@@ -12,7 +12,7 @@ const OrderProvider = (props) => {
         price: orderPrice,
         dish: orderDish,
         table: orderTable,
-        id: Math.random().toString(),a
+        id: Math.random().toString()
       };
       localStorage.setItem(orderId.toString(), JSON.stringify(newOrder));
     setOrders((prevOrders) => [...prevOrders, newOrder]);
@@ -34,6 +34,7 @@ const OrderProvider = (props) => {
   };
   return (
     <OrderContext.Provider value={contextValue}>
+      {console.log('inside provider',orders)}
       {props.children}
     </OrderContext.Provider>
   );
