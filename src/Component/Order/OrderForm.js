@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState,useContext} from "react";
 import Input from "../UI/Input";
 import Card from "../UI/Card";
 import classes from "./OrderForm.module.css";
 import Button from "../UI/Button";
-
+import OrderContext from "../Store/OrderContext";
 const OrderForm = (props) => {
+const cartContext = useContext(OrderContext)
   const [orderId, setOrderId] = useState("");
   const [orderPrice, setOrderPrice] = useState("");
-  const [OrderDish, setOrderDish] = useState("");
-  const [OrderTable, setOrderTable] = useState("Table1");
+  const [orderDish, setOrderDish] = useState("");
+  const [orderTable, setOrderTable] = useState("Table1");
 
   const idHandler = (event) => {
     setOrderId(event.target.value);
@@ -28,7 +29,15 @@ const OrderForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    props.onOrder(orderId, orderPrice, OrderDish, OrderTable);
+    //const quantity = document.getElementById(props.id).value;
+   // cartContext.addOrder({...props.order})
+
+
+   const newOrder = { orderId, orderPrice, orderDish, orderTable };
+   cartContext.addOrder(newOrder);
+     
+    //  cartContext.addOrder({orderId, orderPrice, OrderDish, OrderTable})
+   props.onOrder(orderId, orderPrice, orderDish, orderTable);
     setOrderId("");
     setOrderPrice("");
     setOrderTable("Table1");
@@ -57,11 +66,11 @@ const OrderForm = (props) => {
           label="Choose Dish:"
           type="text"
           id="dish"
-          value={OrderDish}
+          value={orderDish}
           onChange={dishHandler}
         />
         <label htmlFor="Table">Choose Table: </label>
-        <select value={OrderTable} onChange={tableHandler}>
+        <select value={orderTable} onChange={tableHandler}>
           <option value="Table1">Table1</option>
           <option value="Table2">Table2</option>
           <option value="Table3">Table3</option>

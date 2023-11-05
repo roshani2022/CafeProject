@@ -1,23 +1,29 @@
-import React from "react";
-import classes from './HeaderCartButton.module.css';
+import React,{useContext} from "react";
+import classes from "./HeaderCartButton.module.css";
 import CartIcon from "../Cart/CartIcon";
-
+import OrderContext from "../Store/OrderContext";
 const HeaderCartButton = (props) => {
+  const cartContext = useContext(OrderContext);
 
-    //const cartContext = useContext(cartContext)
+  
 
-    return (
+  let quantity = 0;
 
-        <button className={classes.button}>
-        <span className={classes.icon}>
-            <CartIcon></CartIcon>
-        </span>
-        <span>Your Cart</span>
-        <span className={classes.badge}>
-            0
-        </span>
-       </button>
-    )
-}
+  cartContext.orders.forEach(order=>{
+    quantity=quantity+ Number(order.quantity);
+  })
+
+
+  return (
+    <button className={classes.button} onClick={props.onClick}>
+      <span className={classes.icon}>
+        <CartIcon></CartIcon>
+      </span>
+      <span>Your Cart</span>
+      <span>{cartContext.msg}</span>
+      <span className={classes.badge}>{quantity}</span>
+    </button>
+  );
+};
 
 export default HeaderCartButton;

@@ -1,11 +1,17 @@
-import React,{useState,useEffect, Fragment } from "react";
+import React,{useState,useEffect, Fragment} from "react";
 import OrderForm from "./OrderForm";
 import OrderList from "./OrderList";
 
+
 const Order = (props) => {
+
+
 
   const [orderList, setOrderList] = useState([]);
   const [isOrder, setIsOrder] = useState(false);
+
+  
+
   
   useEffect(() => {
     const storedOrders = Object.values(localStorage).map((item) => JSON.parse(item));
@@ -36,9 +42,10 @@ const Order = (props) => {
     const updatedList = orderList.filter((order) => order.OrderId !== oId);
     setOrderList(updatedList);
   };
+
    return(
     <Fragment>
-    <OrderForm onOrder={addOrderHandler}></OrderForm>
+    <OrderForm onOrder={addOrderHandler} id={props.id} ></OrderForm>
     {<h1>Orders</h1>}
     <OrderList  orders={orderList}
       onOrder={isOrder}
