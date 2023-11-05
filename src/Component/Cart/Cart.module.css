@@ -20,7 +20,7 @@
   font: inherit;
   cursor: pointer;
   background-color: transparent;
-  
+
   border: 1px solid darkslategray;
   padding: 0.5rem 2rem;
   border-radius: 25px;
@@ -28,7 +28,6 @@
 }
 actions button:hover,
 .actions button:active {
-  
   background-color: rgb(51, 49, 49);
   border-color: darkslategray;
   color: white;
@@ -38,6 +37,6 @@ actions button:hover,
 }
 
 .actions .button {
-  background-color:darkslategrey;
+  background-color: darkslategrey;
   color: white;
 }

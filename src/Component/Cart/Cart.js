@@ -27,10 +27,8 @@ const Cart = (props) => {
 
   const orderHandler = () => {
     cartContext.clearCart();
-    totalAmount=0;
-  }
-
-
+    totalAmount = 0;
+  };
 
   const cartItems = (
     <ul className={classes["cart-items"]}>
@@ -61,8 +59,10 @@ const Cart = (props) => {
           Close
         </button>
         {hasItem && (
-        <button className={classes.button}  onClick={orderHandler} >Order</button>
-      )}
+          <button className={classes.button} onClick={orderHandler}>
+            Order
+          </button>
+        )}
       </div>
     </Modal>
   );

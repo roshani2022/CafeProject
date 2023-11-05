@@ -1,6 +1,5 @@
 import classes from "./CartItem.module.css";
 const CartItem = (props) => {
-
   const price = `$${Number(props.orderPrice).toFixed(2)}`;
 
   return (

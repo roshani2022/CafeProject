@@ -47,7 +47,7 @@ const OrderProvider = (props) => {
 
   const clearCartHandler = () => {
     setOrders([]);
-   // setTotalAmount(0);
+    // setTotalAmount(0);
   };
 
   const cartContext = {
