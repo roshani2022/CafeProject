@@ -50,12 +50,22 @@ const OrderProvider = (props) => {
     // setTotalAmount(0);
   };
 
+  const addOrder = (order) => {
+    setOrders((prevOrders) => [...prevOrders, order]);
+  };
+
+  const deleteOrder = (orderId) => {
+    setOrders((prevOrders) => prevOrders.filter((order) => order.OrderId !== orderId));
+  };
+
   const cartContext = {
     orders: orders,
     addOrder: addOrderToCartHandler,
     deleteOrder: removeOrderToCartHandler,
     clearCart: clearCartHandler,
     msg: "Cilck Me!",
+    orderDataAddHandler:addOrder,
+    orderDataRemoveHandler:deleteOrder
   };
 
   return (

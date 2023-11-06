@@ -68,12 +68,14 @@ const OrderForm = (props) => {
             value={orderDish}
             onChange={dishHandler}
           />
-          <label htmlFor="Table">Choose Table: </label>
-          <select value={orderTable} onChange={tableHandler}>
+          <div className={classes.row}>
+          <label htmlFor="Table" className={classes.row}>Choose Table: </label>
+          <select value={orderTable} onChange={tableHandler} className={classes.row}>
             <option value="Table1">Table1</option>
             <option value="Table2">Table2</option>
             <option value="Table3">Table3</option>
           </select>
+          </div>
         </div>
         <div className={classes.action}>
           <Button type="submit">Add to bill</Button>

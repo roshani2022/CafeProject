@@ -38,7 +38,7 @@ const Order = (props) => {
   return (
     <Fragment>
       <OrderForm onOrder={addOrderHandler} id={props.id}></OrderForm>
-      {<h1>Orders</h1>}
+      {<h1 style={{marginLeft:'10rem'}}>Orders</h1>}
       <OrderList
         orders={orderList}
         onOrder={isOrder}
